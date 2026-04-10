@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Air Hockey" />
+    <meta name="theme-color" content="#0a0a1a" />
+    <title>Air Hockey</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        user-select: none;
+      }
+
+      html, body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #0a0a1a;
+        touch-action: none;
+      }
+
+      #canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+        touch-action: none;
+      }
+
+      #rotate-prompt {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: #0a0a1a;
+        color: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        font-family: system-ui, sans-serif;
+        font-size: 1.2rem;
+        z-index: 100;
+      }
+
+      #rotate-prompt svg {
+        width: 80px;
+        height: 80px;
+        animation: spin 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(-45deg); }
+        to   { transform: rotate(45deg); }
+      }
+
+      @media (orientation: portrait) {
+        #rotate-prompt { display: flex; }
+        #canvas { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div id="rotate-prompt">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+        <rect x="5" y="2" width="14" height="20" rx="2" />
+        <path d="M12 18h.01" />
+        <path d="M2 10l3-3 3 3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 7v5" stroke-linecap="round"/>
+      </svg>
+      <p>Rotate your phone to landscape</p>
+      <p style="font-size:0.85rem;opacity:0.6">then lay it flat on a table</p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

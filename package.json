@@ -1,0 +1,22 @@
+{
+  "name": "airhockey",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.app.json && vite build",
+    "preview": "vite preview",
+    "serve": "node dist-server/server/index.js",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:all": "npm run build && npm run build:server"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.2.0",
+    "vite-plugin-pwa": "^0.21.1"
+  },
+  "dependencies": {
+    "express": "^5.0.1"
+  }
+}
